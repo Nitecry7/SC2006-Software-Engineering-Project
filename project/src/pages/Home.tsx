@@ -48,19 +48,23 @@ const Home = () => {
 
   return (
     <div className="relative">
-      {/* Hero Section */}
+      {/* Hero Section - Full-screen landing area */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background image with overlay */}
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&w=2000&q=80"
             alt="Singapore Skyline"
             className="w-full h-full object-cover"
           />
+          {/* Gradient overlay for better text visibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
         </div>
 
+        {/* Hero content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center max-w-4xl mx-auto">
+            {/* Main heading with gradient text effect */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
               Find Your Perfect
               <span className="block bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
@@ -68,12 +72,17 @@ const Home = () => {
               </span>
             </h1>
             
+            {/* Subheading */}
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
               Discover your dream home with our AI-powered property search platform
             </p>
 
+            {/* Search form with glow effect */}
             <form onSubmit={handleSearch} className="relative max-w-3xl mx-auto group">
+              {/* Glowing background effect */}
               <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+              
+              {/* Search input field */}
               <input
                 type="text"
                 placeholder="Where would you like to live?"
@@ -81,6 +90,8 @@ const Home = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-8 py-6 rounded-full bg-white/95 backdrop-blur-sm shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all duration-300 pr-40 text-lg"
               />
+              
+              {/* Search button */}
               <button
                 type="submit"
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full hover:shadow-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center space-x-2"
@@ -90,7 +101,9 @@ const Home = () => {
               </button>
             </form>
 
+            {/* Call-to-action buttons */}
             <div className="mt-12 flex flex-wrap justify-center gap-6">
+              {/* Explore properties button */}
               <button
                 onClick={() => navigate('/search')}
                 className="px-8 py-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 group"
@@ -98,6 +111,8 @@ const Home = () => {
                 <span>Start Exploring</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
+              
+              {/* Market trends button */}
               <button
                 onClick={() => navigate('/analytics')}
                 className="px-8 py-4 bg-white/90 text-gray-900 rounded-full hover:bg-white transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
@@ -109,7 +124,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll indicator - fades out when page is scrolled */}
         <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
@@ -117,10 +132,12 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
+      {/* Stats Section - Overlaps with hero section */}
       <div className="relative z-10 -mt-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          {/* Stats cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Properties Listed stat */}
             <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <div className="p-3 bg-blue-100 rounded-lg">
@@ -132,6 +149,8 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Locations stat */}
             <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <div className="p-3 bg-emerald-100 rounded-lg">
@@ -143,6 +162,8 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Success Rate stat */}
             <div className="bg-white rounded-2xl p-8 shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <div className="p-3 bg-purple-100 rounded-lg">
@@ -161,12 +182,15 @@ const Home = () => {
       {/* How It Works Section */}
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900">How SG Homie Works</h2>
             <p className="mt-4 text-xl text-gray-600">Simple steps to find your perfect home</p>
           </div>
 
+          {/* Steps grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Step 1 */}
             <div className="relative">
               <div className="bg-white rounded-2xl p-8 shadow-xl h-full transform hover:-translate-y-2 transition-all duration-300">
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2">
@@ -177,6 +201,7 @@ const Home = () => {
               </div>
             </div>
 
+            {/* Step 2 */}
             <div className="relative">
               <div className="bg-white rounded-2xl p-8 shadow-xl h-full transform hover:-translate-y-2 transition-all duration-300">
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2">
@@ -187,6 +212,7 @@ const Home = () => {
               </div>
             </div>
 
+            {/* Step 3 */}
             <div className="relative">
               <div className="bg-white rounded-2xl p-8 shadow-xl h-full transform hover:-translate-y-2 transition-all duration-300">
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2">
@@ -200,7 +226,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Featured Listings */}
+      {/* Featured Listings Section */}
       <div className="mt-24">
         <FeaturedListings />
       </div>
@@ -208,14 +234,17 @@ const Home = () => {
       {/* Testimonials Section */}
       <div className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900">What Our Users Say</h2>
             <p className="mt-4 text-xl text-gray-600">Join thousands of satisfied homeowners</p>
           </div>
 
+          {/* Testimonials grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                {/* Testimonial header with user info */}
                 <div className="flex items-center mb-6">
                   <img
                     src={testimonial.image}
@@ -227,6 +256,7 @@ const Home = () => {
                     <p className="text-gray-600">{testimonial.role}</p>
                   </div>
                 </div>
+                {/* Testimonial quote */}
                 <p className="text-gray-600 italic">"{testimonial.quote}"</p>
               </div>
             ))}
@@ -234,8 +264,9 @@ const Home = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
+      {/* Call-to-Action Section */}
       <div className="relative py-24 bg-blue-600">
+        {/* Background image with overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80"
@@ -243,6 +274,7 @@ const Home = () => {
             className="w-full h-full object-cover opacity-10"
           />
         </div>
+        {/* CTA content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-8">Ready to Find Your Dream Home?</h2>
           <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
@@ -257,7 +289,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Notification Panel */}
+      {/* Notification Panel - Fixed position */}
       <div className="fixed top-20 right-4 z-50">
         <NotificationPanel />
       </div>
