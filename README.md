@@ -1,4 +1,4 @@
-# SG Homie 🏠✨
+# SG Homie   <img width="100" alt="SG Homie Logo" src="https://github.com/user-attachments/assets/8e515211-77c0-4630-b725-9e27734192c8" /> ✨
 
 <div align="center">
 
@@ -9,7 +9,7 @@ Welcome to **SG Homie** – Your Smart Housing Companion in Singapore 🌆
 </div>
 
 <p align="center">
-  <img width="72" alt="SG Homie Logo" src="https://github.com/user-attachments/assets/8e515211-77c0-4630-b725-9e27734192c8" />
+
 </p>
 
 ---
