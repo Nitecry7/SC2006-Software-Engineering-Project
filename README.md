@@ -3,7 +3,7 @@
 Welcome to **SG Homie**, a web application designed to simplify the housing journey in Singapore. Whether you're looking to buy, rent, or sell a property, SG Homie provides personalized recommendations, real-time property information, and seamless communication tools to connect buyers and sellers.
 
 <p align="center">
-  <img src="src/assets/img/logo.jpeg" alt="SG Homie Logo" width="200"/>
+  <img src="frontend/src/assets/img/logo.jpeg" alt="SG Homie Logo" width="200"/>
 </p>
 
 <div align="center">
@@ -18,6 +18,7 @@ Welcome to **SG Homie**, a web application designed to simplify the housing jour
 - [About SG Homie](#about-sg-homie)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
+- [Accessing the Application](#accessing-the-application)
 - [Setup Instructions](#setup-instructions)
   - [Frontend Setup](#frontend-setup)
   - [Supabase Setup](#supabase-setup)
@@ -64,9 +65,18 @@ SG Homie is a one-stop platform for all your housing needs in Singapore. It allo
 
 ---
 
-## Setup Instructions
+## Accessing the Application
 
-Follow these steps to set up SG Homie on your local machine.
+### Main Option: Access the Live Site
+You can access the SG Homie application directly through this link:  
+👉 **[SG Homie Live Site](https://sg-homie.netlify.app)**
+
+### Secondary Option: Clone and Set Up Locally
+If you'd like to run the application on your local machine, follow the instructions below.
+
+---
+
+## Setup Instructions
 
 ### Prerequisites
 Before you begin, ensure you have the following installed:
@@ -161,20 +171,14 @@ Before you begin, ensure you have the following installed:
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/faheemfaizal">
-        <img src="https://github.com/faheemfaizal.png" width="100" height="100" style="border-radius: 50%;"><br />
-        <sub><b>Faheem Faizal</b></sub>
+      <a href="https://github.com/Nitecry7">
+        <img src="https://github.com/Nitecry7.png" width="100" height="100" style="border-radius: 50%;"><br />
+        <sub><b>Faheem</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/HeHao">
-        <img src="https://github.com/HeHao.png" width="100" height="100" style="border-radius: 50%;"><br />
-        <sub><b>He Hao</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/Steven">
-        <img src="https://github.com/Steven.png" width="100" height="100" style="border-radius: 50%;"><br />
+      <a href="https://github.com/stevennoctavianus">
+        <img src="https://github.com/stevennoctavianus.png" width="100" height="100" style="border-radius: 50%;"><br />
         <sub><b>Steven</b></sub>
       </a>
     </td>
@@ -182,6 +186,12 @@ Before you begin, ensure you have the following installed:
       <a href="https://github.com/Eishani">
         <img src="https://github.com/Eishani.png" width="100" height="100" style="border-radius: 50%;"><br />
         <sub><b>Eishani</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/vanillatte11037">
+        <img src="https://github.com/vanillatte11037.png" width="100" height="100" style="border-radius: 50%;"><br />
+        <sub><b>He Haoyu</b></sub>
       </a>
     </td>
   </tr>
