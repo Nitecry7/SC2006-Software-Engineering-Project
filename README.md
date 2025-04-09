@@ -1,6 +1,6 @@
 <div align = "center">
 <img width="200" align = "center" alt="SG Homie Logo" src="https://github.com/user-attachments/assets/8e515211-77c0-4630-b725-9e27734192c8" /> 
-</div>
+
 
 Welcome to **SG Homie** – Your Smart Housing Companion in Singapore 🌆
 
