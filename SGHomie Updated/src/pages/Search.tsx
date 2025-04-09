@@ -1,10 +1,17 @@
+// Import React hooks for managing state and side effects.
 import React, { useState, useEffect } from 'react';
+// Import icons from lucide-react for use in the UI.
 import { Search as SearchIcon, Home, DollarSign } from 'lucide-react';
+// Import Supabase client to fetch data from your database.
 import { supabase } from '../lib/supabase';
+// Import useNavigate for programmatic navigation between routes.
 import { useNavigate } from 'react-router-dom';
+// Import custom Auth context to access current user data.
 import { useAuth } from '../contexts/AuthContext';
+// Import the Property type definition.
 import type { Property } from '../types/supabase';
 
+// Define a constant array for location filters. "ALL" is used to reset the filter.
 const LOCATIONS = [
   'ALL',
   'ANG MO KIO', 'BEDOK', 'BISHAN', 'BUKIT BATOK', 'BUKIT MERAH',
@@ -15,18 +22,28 @@ const LOCATIONS = [
   'TOA PAYOH', 'WOODLANDS', 'YISHUN'
 ].sort();
 
+// Define a constant array for room type filters, including an "ALL" option.
 const ROOM_TYPES = ['ALL', '2 ROOM', '3 ROOM', '4 ROOM', 'EXECUTIVE'];
 
+// Main Search component.
 const Search = () => {
+  // Get the navigate function for routing.
   const navigate = useNavigate();
+  // Destructure the current user from the authentication context.
   const { user } = useAuth();
+
+  // State to hold the list of properties fetched from the database.
   const [properties, setProperties] = useState<Property[]>([]);
+  // State to track if a search operation is in progress.
   const [loading, setLoading] = useState(false);
+  // State to determine whether to use profile-based recommendations for filters.
   const [useProfileRecommendations, setUseProfileRecommendations] = useState(true);
+  // State to hold the logged-in user's profile data (preferences).
   const [userProfile, setUserProfile] = useState<{
     preferred_locations: string[];
     preferred_property_type: string;
   } | null>(null);
+  // State to hold the current search filters.
   const [filters, setFilters] = useState({
     location: 'ALL',
     roomType: 'ALL',
@@ -34,20 +51,25 @@ const Search = () => {
     maxPrice: '',
   });
 
+  // useEffect to fetch the user's profile once the component is mounted and when the user changes.
   useEffect(() => {
     const fetchUserProfile = async () => {
-      if (!user) return;
+      if (!user) return; // If no user is logged in, do nothing.
 
       try {
+        // Query Supabase for the user's profile preferences.
         const { data, error } = await supabase
           .from('user_profiles')
           .select('preferred_locations, preferred_property_type')
           .eq('id', user.id)
           .single();
 
+        // Throw error if the query fails.
         if (error) throw error;
 
+        // Save the fetched profile data.
         setUserProfile(data);
+        // If profile recommendations are enabled, update filters with the user's preferences.
         if (data && useProfileRecommendations) {
           setFilters(prev => ({
             ...prev,
@@ -60,55 +82,67 @@ const Search = () => {
       }
     };
 
+    // Execute the function to fetch user profile information.
     fetchUserProfile();
   }, [user]);
 
+  // Function to handle search form submission.
   const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault(); // Prevent the default form submission behavior.
+    setLoading(true);   // Set loading state to true during the fetch.
 
     try {
+      // Construct a query from Supabase filtering for approved HDB properties.
       let query = supabase
         .from('properties')
         .select('*')
         .eq('type', 'HDB')
-        .eq('status', 'approved'); // Only fetch approved properties
+        .eq('status', 'approved'); // Retrieve only approved properties.
 
+      // If a specific location is selected (not "ALL"), add a location filter.
       if (filters.location !== 'ALL') {
         query = query.eq('location', filters.location);
       }
+      // If a specific room type is selected (not "ALL"), filter by the number of bedrooms.
       if (filters.roomType !== 'ALL') {
+        // Assumes room type string is formatted like "4 ROOM" and extracts the first number.
         query = query.eq('bedrooms', parseInt(filters.roomType.split(' ')[0]));
       }
+      // Apply minimum price filter if provided.
       if (filters.minPrice) {
         query = query.gte('price', parseFloat(filters.minPrice));
       }
+      // Apply maximum price filter if provided.
       if (filters.maxPrice) {
         query = query.lte('price', parseFloat(filters.maxPrice));
       }
 
+      // Execute the query.
       const { data, error } = await query;
-
-      if (error) throw error;
+      if (error) throw error; // Handle any errors from the query.
+      // Update the properties state with the fetched data.
       setProperties(data || []);
     } catch (error) {
       console.error('Error searching properties:', error);
     } finally {
-      setLoading(false);
+      setLoading(false);  // Stop the loading spinner regardless of the result.
     }
   };
 
+  // Function to handle changes in filter inputs.
+  // Prevents updating location and roomType filters if profile recommendations are in use.
   const handleFilterChange = (field: string, value: string) => {
     if (useProfileRecommendations && (field === 'location' || field === 'roomType')) {
-      return; // Don't allow changes to location and roomType when using profile recommendations
+      return; // Do not allow manual changes when recommendations are enabled.
     }
     setFilters(prev => ({ ...prev, [field]: value }));
   };
 
+  // Function to toggle the use of profile recommendations.
   const toggleProfileRecommendations = () => {
     setUseProfileRecommendations(!useProfileRecommendations);
     if (!useProfileRecommendations && userProfile) {
-      // When enabling recommendations, use profile preferences
+      // When enabling recommendations, apply the user's profile preferences.
       setFilters(prev => ({
         ...prev,
         location: userProfile.preferred_locations?.[0] || 'ALL',
@@ -120,6 +154,7 @@ const Search = () => {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900">Find Your Dream HDB</h1>
           <p className="mt-4 text-lg text-gray-600">
@@ -127,8 +162,9 @@ const Search = () => {
           </p>
         </div>
 
-        {/* Search Filters */}
+        {/* Search Filters Form */}
         <form onSubmit={handleSearch} className="bg-white rounded-2xl shadow-xl p-8 mb-12">
+          {/* Display a checkbox for profile recommendation usage (only if user is logged in). */}
           {user && (
             <div className="mb-6">
               <label className="flex items-center space-x-2 cursor-pointer">
@@ -144,7 +180,7 @@ const Search = () => {
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Location Dropdown */}
+            {/* Location Filter Dropdown */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Location
@@ -167,7 +203,7 @@ const Search = () => {
               </div>
             </div>
 
-            {/* Room Type Dropdown */}
+            {/* Room Type Filter Dropdown */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Room Type
@@ -190,7 +226,7 @@ const Search = () => {
               </div>
             </div>
 
-            {/* Price Range */}
+            {/* Minimum Price Input */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Minimum Price
@@ -207,6 +243,7 @@ const Search = () => {
               </div>
             </div>
 
+            {/* Maximum Price Input */}
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Maximum Price
@@ -224,6 +261,7 @@ const Search = () => {
             </div>
           </div>
 
+          {/* Search Button */}
           <div className="mt-8 flex justify-center">
             <button
               type="submit"
@@ -236,7 +274,7 @@ const Search = () => {
           </div>
         </form>
 
-        {/* Results */}
+        {/* Results Section: Display the list of properties from the search */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.map((property) => (
             <div
@@ -272,6 +310,7 @@ const Search = () => {
           ))}
         </div>
 
+        {/* No Results Message: Displayed if no properties are found and not loading */}
         {properties.length === 0 && !loading && (
           <div className="text-center py-12">
             <div className="text-gray-500 text-lg">
@@ -284,4 +323,5 @@ const Search = () => {
   );
 };
 
+// Export the Search component as the default export.
 export default Search;

@@ -1,30 +1,44 @@
-import React, { useState } from 'react';
+// Import necessary React hooks and libraries.
+import React, { useState, useEffect } from 'react';
+// Import icons for visual cues from lucide-react.
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+// Import toast to display success notifications.
 import toast from 'react-hot-toast';
 
+// Define the Contact component.
 const Contact = () => {
+  // Set up state for the contact form fields.
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: '',      // User's full name.
+    email: '',     // User's email address.
+    phone: '',     // User's phone number.
+    message: '',   // User's message.
   });
 
+  // Event handler for form field changes.
+  // Updates the corresponding field in formData state.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    // Use the previous state and update the changed field.
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Handler for form submission.
+  // Mimics sending the form data to a backend (or API) and then resets the form.
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real application, this would send the data to your backend
+    e.preventDefault(); // Prevent default browser form submission behavior.
+    // In a real application, you would typically send this data to your backend.
+    // Here we simulate a successful submission by showing a success toast.
     toast.success('Message sent successfully! We will get back to you soon.');
+    // Reset form fields after submission.
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
+  // Component's rendered output.
   return (
     <div className="pt-16 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900">Contact Us</h1>
           <p className="mt-4 text-lg text-gray-600">
@@ -33,11 +47,12 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Information Section */}
           <div className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Get in Touch</h2>
             
             <div className="space-y-6">
+              {/* Phone Information */}
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <Phone className="h-6 w-6 text-blue-600" />
@@ -49,6 +64,7 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* Email Information */}
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <Mail className="h-6 w-6 text-blue-600" />
@@ -60,6 +76,7 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* Office Location Information */}
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <MapPin className="h-6 w-6 text-blue-600" />
@@ -72,6 +89,7 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* Operating Hours Section */}
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
               <h3 className="text-lg font-medium text-blue-900">Operating Hours</h3>
               <div className="mt-3 space-y-2 text-blue-800">
@@ -82,11 +100,13 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form Section */}
           <div className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send us a Message</h2>
             
+            {/* Form submission handler */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Full Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Full Name
@@ -95,13 +115,14 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  value={formData.name}  // Controlled input value
+                  onChange={handleChange}  // Update state on change
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
 
+              {/* Email Address Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email Address
@@ -110,13 +131,14 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
+                  value={formData.email}  // Controlled input for email
                   onChange={handleChange}
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
 
+              {/* Phone Number Field */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
                   Phone Number
@@ -125,12 +147,13 @@ const Contact = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  value={formData.phone}
+                  value={formData.phone}  // Controlled input for phone number
                   onChange={handleChange}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
               </div>
 
+              {/* Message Field */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                   Message
@@ -139,18 +162,19 @@ const Contact = () => {
                   id="message"
                   name="message"
                   rows={4}
-                  value={formData.message}
+                  value={formData.message}  // Controlled textarea for message
                   onChange={handleChange}
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 ></textarea>
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 flex items-center justify-center"
               >
-                <Send className="h-5 w-5 mr-2" />
+                <Send className="h-5 w-5 mr-2" />  {/* Send icon for visual cue */}
                 Send Message
               </button>
             </form>
@@ -161,4 +185,5 @@ const Contact = () => {
   );
 };
 
+// Export the Contact component as the default export.
 export default Contact;
