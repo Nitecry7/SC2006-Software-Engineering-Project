@@ -1,31 +1,31 @@
-SG Homie 🏠
-Welcome to SG Homie – a web application designed to simplify your housing journey in Singapore. Whether you're looking to buy, rent, or sell a property, SG Homie provides personalized recommendations, real-time property information, and seamless communication tools to connect buyers and sellers.
+# SG Homie 🏠
+Welcome to **SG Homie** – a web application designed to simplify your housing journey in Singapore. Whether you're looking to buy, rent, or sell a property, SG Homie provides personalized recommendations, real-time property information, and seamless communication tools to connect buyers and sellers.
 
 
-Frontend | Backend | Demo Video
+<p align="center">
+  <img src="frontend/src/assets/img/logo.jpeg" alt="SG Homie Logo" width="200"/>
+</p>
 
-Table of Contents
-About SG Homie
+<div align="center">
 
-Features
+[Frontend](frontend/) | [Backend](backend/) | [Demo Video](https://youtu.be/DUjzc5ec98E)
 
-Tech Stack
+</div>
 
-Accessing the Application
+## Table of Contents
+- [About SG Homie](#about-sg-homie)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Accessing the Application](#accessing-the-application)
+- [Setup Instructions](#setup-instructions)
+  - [Frontend Setup](#frontend-setup)
+  - [Supabase Setup](#supabase-setup)
+- [How It Works](#how-it-works)
+- [External APIs](#external-apis)
+- [Contributors](#contributors)
+---
 
-Setup Instructions
-
-Frontend Setup
-
-Supabase Setup
-
-How It Works
-
-External APIs
-
-Contributors
-
-About SG Homie
+## About SG Homie
 SG Homie is your one-stop platform for all your housing needs in Singapore. It lets you:
 
 🔍 Browse properties for sale or rent.
@@ -36,22 +36,28 @@ SG Homie is your one-stop platform for all your housing needs in Singapore. It l
 
 💬 Communicate with buyers or sellers via integrated tools.
 
-Features
-Personalized Recommendations: 🤖 AI-powered suggestions based on your preferences.
+---
 
-Property Listings: 🏢 Browse and filter properties by location, price, and type.
+## Features
 
-Interactive Maps: 📍 View property locations and nearby amenities.
+- **Personalized Recommendations**: 🤖 AI-powered suggestions based on your preferences.
 
-Seller Dashboard: 📊 Manage property listings and track buyer interest.
+- **Property Listings**:🏢 Browse and filter properties by location, price, and type.
 
-Admin Dashboard: 🛠️ Approve or reject property listings and manage users.
+- **Interactive Maps**: 📍 View property locations and nearby amenities.
 
-Secure Authentication: 🔐 Sign up and log in using email or Google OAuth.
+- **Seller Dashboard**: 📊 Manage property listings and track buyer interest.
 
-Tech Stack
-Frontend
-React: For building the dynamic user interface.
+- **Admin Dashboard**:: 🛠️ Approve or reject property listings and manage users.
+
+- **Secure Authentication**: 🔐 Sign up and log in using email or Google OAuth.
+
+---
+
+## Tech Stack
+
+### Frontend
+- **React**: For building the dynamic user interface.
 
 TailwindCSS: For styling and responsive design.
 
@@ -59,7 +65,7 @@ React Router: For navigating between pages.
 
 Vite: For fast development and build tooling.
 
-Backend
+### Backend
 Supabase: For authentication, database management, and serverless functions.
 
 Accessing the Application
