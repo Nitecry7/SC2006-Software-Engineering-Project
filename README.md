@@ -1,4 +1,4 @@
-# SG Homie   <img width="100" alt="SG Homie Logo" src="https://github.com/user-attachments/assets/8e515211-77c0-4630-b725-9e27734192c8" /> ✨
+✨<img width="200" alt="SG Homie Logo" src="https://github.com/user-attachments/assets/8e515211-77c0-4630-b725-9e27734192c8" /> 
 
 <div align="center">
 
