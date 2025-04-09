@@ -186,4 +186,3 @@ Interactive Links: Provided clear call-to-action links (e.g., Live Site).
 
 Overall Styling: Improved overall layout and use of whitespace for better visual appeal.
 
-This enhanced README design should be more interactive and aesthetically pleasing while maintaining the original structure and outline, helping your project stand out for a high mark!
