@@ -9,7 +9,7 @@ Welcome to **SG Homie** – Your Smart Housing Companion in Singapore 🌆
 </div>
 
 <p align="center">
-  <img src="frontend/src/assets/img/logo.jpeg" alt="SG Homie Logo" width="200"/>
+  <img src="SC2006-Software-Engineering-Project\SG Homie Logo.png" alt="SG Homie Logo" width="200"/>
 </p>
 
 ---
