@@ -11,14 +11,13 @@ Welcome to **SG Homie** – Your Smart Housing Companion in Singapore 🌆
 ---
 
 ## 📑 Table of Contents
-- [✨ About](#about)
-- [🎯 Features](#features)
-- [🛠️ Tech Stack](#tech-stack)
-- [🚀 Getting Started](#getting-started)
-- [🏗️ Project Structure](#project-structure)
-- [🔌 External APIs](#external-apis)
-- [👥 Contributors](#contributors)
-
+- [✨ About](#-about)
+- [🎯 Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [🏗️ Project Structure](#️-project-structure)
+- [🔌 External APIs](#-external-apis)
+- [👥 Contributors](#-contributors)
 ---
 
 ## ✨ About
