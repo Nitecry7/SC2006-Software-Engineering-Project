@@ -90,8 +90,14 @@ Before you begin, ensure you have:
    cd SGHomie-Updated
    
 2. **Install Dependencies**:
-```bash
+  ```bash
+  npm install
+npm install
 
+3. **Set Up Environment Variables: Create a .env file in the frontend directory and add:**
+  ```bash
+  VITE_SUPABASE_URL=https://your-supabase-url.supabase.co
+  VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 
 3. Set Up Environment Variables: Create a `.env` file in the root directory and add:
 ```bash
