@@ -1,16 +1,12 @@
+<div align = "center">
 <img width="200" align = "center" alt="SG Homie Logo" src="https://github.com/user-attachments/assets/8e515211-77c0-4630-b725-9e27734192c8" /> 
-
-<div align="center">
+</div>
 
 Welcome to **SG Homie** – Your Smart Housing Companion in Singapore 🌆
 
 [🖥️ Live Site](https://sg-homie.netlify.app) | [📚 Documentation](#documentation) | [🎥 Demo Video](https://youtu.be/0muokFq4Si4)
 
 </div>
-
-<p align="center">
-
-</p>
 
 ---
 
