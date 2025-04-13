@@ -4,7 +4,7 @@
 
 Welcome to **SG Homie** – Your Smart Housing Companion in Singapore 🌆
 
-[🖥️ Live Site](https://sg-homie.netlify.app) | [📚 Documentation](#documentation) | [🎥 Demo Video](https://youtu.be/0muokFq4Si4)
+[🖥️ Live Site](https://sg-homie.netlify.app) | [📚 Documentation](https://drive.google.com/file/d/1LzKrfmayua1ZWJQZfrD89voyZggpbCKi/view?usp=sharing) | [🎥 Demo Video](https://youtu.be/0muokFq4Si4)
 
 </div>
 
